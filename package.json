@@ -1,0 +1,22 @@
+{
+  "name": "scss-cleans",
+  "version": "1.1.1",
+  "description": "This package is for removing duplicated SCSS attributes",
+  "main": "index.js",
+  "scripts": {
+    "scss-cleans": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annie309409/scss-cleans.git"
+  },
+  "keywords": [
+    "scss"
+  ],
+  "author": "Annie anniep309409@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/annie309409/scss-cleans/issues"
+  },
+  "homepage": "https://github.com/annie309409/scss-cleans#readme"
+}

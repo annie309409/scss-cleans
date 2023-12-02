@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR&family=Permanent+Marker&display=swap');
+@import url('./reset.scss');
+@import url('./main.min.css');
+@import url('./sub1.min.css');
+@import url('./sub2.min.css');
+@import url('./sub3.min.css');
+@import url('./sub4.min.css');
+
+@mixin grid($dev){
+    @if($dev=='pc'){
+        width: 80%;
+        max-width: 1080px;
+    }
+    @else if($dev=='tab'){
+        width: 90%;
+        max-width: 700px;
+    }
+    @else if($dev=='mob'){
+        width: 90%;
+    }
+    margin: 0 auto;
+}
+
+@mixin img($p,$s){
+    background-position: $p;
+    background-size: $s;
+    background-repeat: no-repeat;
+    color: transparent;
+}
+@mixin mob {
+    @media (min-width:0px) and (max-width:700px) {
+        @content;
+    }
+}
+@mixin tab {
+    @media (min-width:0px) and (max-width:1024px) {
+        @content;
+    }
+}
+
+html{
+    font-size: 3vw;
+    @include tab{
+        font-size: 5vw;
+    }
+    @include mob{
+        font-size: 10.5vw;
+    }
+    body{
+        overflow-x: hidden;
+        font-size: 0.7vw;
+        font-family: 'Noto Serif KR';
+        @include tab{
+            font-size: 1.28vw;
+        }
+        @include mob{
+            font-size: 2.38vw;
+        }
+
+        div.hdrWrap{
+            width: 100%;
+            height:  #{'min(2rem,80px)'};
+            position: relative;
+            header{
+                @include grid('pc');
+                display: flex;
+                position: relative;
+                z-index: 90;
+                justify-content: space-between;
+                align-items: center;
+                color: #fff;
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+                @include tab{
+                    @include grid('tab');
+                }
+                @include mob(){
+                    @include grid('mob');
+                }
+                h1{
+                    font-size: #{'min(3.6em,36px)'};
+                    font-size: #{'min(3.6em,36px)'};
+                    line-height: #{'min(2rem,80px)'};
+                    font-size: #{'min(3.6em,36px)'};
+                    font-family: "Noto Serif KR";
+                    cursor: pointer;
+                    @include tab{
+                        font-size: #{'max(1.8em,18px)'};
+                        line-height: #{'max(0.5rem,20px)'};
+                    }
+                }
+                ul{
+                    width: 50%;
+                    display: flex;
+                    justify-content: space-around;
+                    @include tab{
+                        justify-content: end;
+                        font-size: #{'max(1.8em,18px)'};
+                        line-height: #{'max(0.5rem,20px)'};
+                    }
+                    li{
+                        cursor: pointer;
+                        line-height: #{'min(2rem,80px)'};
+                        font-size: #{'min(2.2em,22px)'};
+                        font-weight: 500;
+                        @include tab{
+                            display: none;
+                        }
+                        &:last-child{
+                            display: none;
+                            @include tab{
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+            div.navBox{
+                width: 100vw;
+                height: 100vh;
+                background-color: rgba(255,255,255,0.8);
+                position: fixed;
+                top: 0;left: 0;
+                color: #000;
+                opacity: 0;
+                z-index: -999;
+                transition: opacity 0.5s;
+                z-index: -999;
+                ul{
+                    width: 50%;
+                    height: 80%;
+                    position: absolute;
+                    margin: auto;
+                    top: 0;bottom: 0;left: 0;right: 0;
+                    position: absolute;
+                    height: 80%;
+                    text-align: center;
+                    height: 80%;
+                    top: 0;bottom: 0;left: 0;right: 0;
+                    li{
+                        line-height:  #{'max(1rem,30px)'};
+                        font-size: #{'max(1.8em,16px)'};
+                        position: relative;
+                        cursor: pointer;
+                        &:first-child{
+                            margin-top:#{'max(1rem,30px)'};
+                        }
+                        &:last-child{
+                            position: absolute;
+                            top: -5%;right: 0; left: 0;
+                        }
+                    }
+                }
+                &.show{
+                    z-index: 99;
+                    opacity: 1;
+                }
+            }
+        }
+
+        div.ftrWrap{
+            background-color: #003399;
+            color: #fff;
+            margin-top: #{'min(3rem,120px)'};
+            @include tab{
+                margin-top: #{'min(1rem,40px)'};
+            }
+            @include mob{
+                margin-top: #{'max(0.5rem,20px)'};
+
+            }
+            footer{
+                @include grid('pc');
+                padding: #{'min(1rem,40px)'} 0;
+                @include tab{
+                    @include grid('tab');
+                }
+                @include mob(){
+                    @include grid('mob');
+                }
+                div.top{
+                    display: flex;
+                    justify-content: space-between;
+                    border-bottom: 3px solid magenta;
+                    padding-bottom: #{'min(0.5rem,20px)'};
+                    @include mob{
+                        flex-wrap: wrap;
+                    }
+                    h2{
+                        font-size: #{'min(3.6em,36px)'};
+                        line-height: #{'min(1rem,40px)'};
+                        width: calc(100% / 3);
+                        @include tab{
+                            font-size: #{'max(1.4em,14px)'};
+                            line-height: #{'max(0.5rem,20px)'};
+                        }
+                        @include mob{
+                            width: 50%;
+                            font-size: #{'max(1.4em,14px)'};
+                            line-height: #{'max(0.5rem,20px)'};
+                        }
+                    }
+                    h3{
+                        font-size: #{'min(2.2em,22px)'};
+                        line-height: #{'min(1rem,40px)'};
+                        font-family: "Noto Serif KR";
+                        width: calc(100% / 3);
+                        text-align: center;
+                        @include tab{
+                            font-size: #{'max(1.4em,14px)'};
+                            line-height: #{'max(0.5rem,20px)'};
+                        }
+                        @include mob{
+                            width: 50%;
+                            font-size: #{'max(1.4em,14px)'};
+                            font-size: #{'max(1.4em,14px)'};
+                            font-size: #{'max(1.4em,14px)'};
+                            font-size: #{'max(1.4em,14px)'};
+                            line-height: #{'max(0.5rem,20px)'};
+                        }
+                    }
+                    ul{
+                        display: flex;
+                        justify-content: flex-end;
+                        font-size:  #{'min(4em,40px)'};
+                        width: calc(100% / 3);
+                        line-height:  #{'min(1rem,40px)'};
+                        @include tab{
+                            font-size: #{'max(1.4em,14px)'};
+                            line-height: #{'max(0.5rem,20px)'};
+                        }
+                        @include mob{
+                            display: none;
+                        }
+                        li{
+                            margin-left: 10px;
+                        }
+                    }
+                }
+                div.btm{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: #{'min(0.5rem,20px)'};
+                    @include mob{
+                      display: none;
+                    }
+                    ul{
+                        display: flex;
+                        width: 50%;
+                        justify-content: flex-end;
+                        li{
+                            border-right: 1px solid white;
+                            padding: 0 10px;
+                            &:last-of-type{
+                                border: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            div.ftr2{
+                background-color: #003366;
+                color: #fff;
+                text-transform: uppercase;
+                line-height: #{'min(1rem,40px)'};
+                text-align: center;
+                font-size: #{'min(2em,20px)'};
+                @include mob{
+                    line-height: #{'max(0.5rem,20px)'};
+                    font-size: #{'max(1.3em,13px)'};
+                }
+            }
+        }
+    }
+}
